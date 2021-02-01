@@ -9,7 +9,7 @@ d3.json("/data/data.json", function(data){
 });
 
 
-console.log("test");
+console.log("test2");
 
 //prepare SVG
 
