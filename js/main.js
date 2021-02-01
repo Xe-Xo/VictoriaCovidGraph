@@ -4,7 +4,7 @@ var newcases;
 
 d3.json("/data/data.json", function(data)){
 
-	newcases = json
+	newcases = data
 	console.log(newcases[0])
 }
 
