@@ -158,7 +158,7 @@ function optionsLoad() {
 	}
 
 
-    options.something = validIntRange(0, 3, options.something);
+    options.something = validIntRange(14, 28, options.something);
 	document.getElementById('select_something').value = options.something;
 
 
