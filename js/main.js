@@ -1,16 +1,4 @@
 
-var newcases;
-
-
-d3.json("/data/data.json", function(data){
-
-	newcases = data
-	console.log(newcases[0])
-});
-
-
-console.log("test");
-
 //prepare SVG
 
 var svgWidth = 1080;
@@ -18,8 +6,8 @@ var svgHeight = 480;
 
 var width = svgWidth - 64;
 var height = (svgHeight - 56) / 2;
-var barPadding = 4;
-var barWidth = width / 5 - barPadding;
+var barPadding = 2;
+var barWidth = (width / 373) - barPadding;
 var miniBar = 8;
 var barOffsetX = 56;
 var barOffsetY = 40;
@@ -33,15 +21,27 @@ var svg = d3.select("div.graph")
 
 var gAxisY = svg.append("g");
 var gAxisX = svg.append("g");
-
+var gCases = svg.append("g");
 
 var options;
+var data;
+var data2;
 
+//console.log(_.values(data.dates).length);
+//console.log(_.values(data.new));
+
+//var parseDate = d3.timeParse("%Q");
+//console.log(data.dates[0])
+//console.log(new Date(data.dates[0]))
+
+
+var daterange = [new Date(data.dates[0]),new Date(data.dates[_.values(data.dates).length-1])];
+console.log(daterange);
 
 function updateScaleX(){
 
 	return d3.scaleLinear()
-		.domain([0,options.something])
+		.domain(daterange)
 		.range([0, svgWidth-100]);
 
 }
@@ -49,7 +49,7 @@ function updateScaleX(){
 function updateScaleY(){
 
 	return d3.scaleLinear()
-		.domain([0,100])
+		.domain([0,d3.max(_.values(data.new))])
 		.range([svgHeight/2,10]);
 
 }
@@ -63,6 +63,7 @@ function renderGraph(){
 
 	var xAxis = d3.axisBottom()
 		.scale(x)
+		.ticks(14).tickFormat(d3.timeFormat("%d-%b-%y"));
 
 	var yAxis = d3.axisLeft()
 		.scale(y)
@@ -74,6 +75,19 @@ function renderGraph(){
 	axisY = gAxisX.attr("class","axis").call(yAxis).attr("transform", "translate(50,10)") //this is for allignment
 	axisX = gAxisY.attr("class","axis").call(xAxis).attr("transform", "translate(50, " + xAxisTranslate + ")") //this is for allignment
 	
+	
+
+	barsCases = gCases.selectAll("rect")
+		.data(data2)
+		.enter()
+		.append("rect")
+		.attr("height", function(d,n) {return d.new/2})
+		.attr("width", barWidth)
+		.attr("x",function(d,n) {return 50+n*2})
+		.attr("y",function(d,n) {return svgHeight/2 + 10 - d.new/2})
+		.attr("color","lime")
+
+
 }
 
 function updateGraph(){
@@ -91,6 +105,10 @@ function updateGraph(){
 
 	axisY.transition().call(yAxis)
 	axisX.transition().call(xAxis)
+
+
+
+
 
 }
 
