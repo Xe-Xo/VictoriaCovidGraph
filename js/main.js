@@ -2,11 +2,11 @@
 var newcases;
 
 
-d3.json("/data/data.json", function(data)){
+d3.json("/data/data.json", function(data){
 
 	newcases = data
 	console.log(newcases[0])
-}
+});
 
 
 //prepare SVG
