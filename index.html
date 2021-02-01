@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<meta name="description" content="A Covid Graphing Visualiser." />
+<title>Covid visualiser</title>
+<script src="https://d3js.org/d3.v5.min.js" charset="utf-8"></script>
+<link rel="stylesheet" type="text/css" href="style/style.css" />
+<body>
+
+	<script src="js/options.js"></script>
+
+    <div class="graph">
+        <script src="js/main.js"></script>
+		
+	</div>
+    
+
+
+
+
+    <div class="options">
+		<table cellspacing="2">
+
+			<tr>
+				<td>Options:</td>
+				<td>
+					<select id="select_something" onChange="rebuild()">
+						<option value="0" selected="true">0</option>
+						<option value="1">1</option>
+					</select>
+				</td>
+            </tr>
+        </table>
+    </div>
+
+
+</body>
+</html>
