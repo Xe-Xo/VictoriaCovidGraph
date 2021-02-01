@@ -1,11 +1,11 @@
 
-var data;
+var newcases;
 
 
-d3.json("data/data.json", function(json)){
-	console.log(json)
-	data = json
+d3.json("/data/data.json", function(data)){
 
+	newcases = json
+	console.log(newcases[0])
 }
 
 
