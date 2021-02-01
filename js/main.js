@@ -1,16 +1,4 @@
 
-var newcases;
-
-
-d3.json("/data/data.json", function(data){
-
-	newcases = data
-	console.log(newcases[0])
-});
-
-
-console.log("test2");
-
 //prepare SVG
 
 var svgWidth = 1080;
@@ -75,7 +63,7 @@ function renderGraph(){
 
 	var xAxis = d3.axisBottom()
 		.scale(x)
-		.ticks(14).tickFormat(d3.timeFormat("%d-%b-%y"));
+		.ticks(options.something).tickFormat(d3.timeFormat("%d-%b-%y"));
 
 	var yAxis = d3.axisLeft()
 		.scale(y)

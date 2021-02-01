@@ -2,4 +2,3 @@ var data = {"dates":{"0":1579910400000,"1":1579996800000,"2":1580083200000,"3":1
 
 data2 = [];
 _.map(data.new, function(num, key){ data2.push({"date":data.dates[num], "new": num})});
-console.log(data2)
