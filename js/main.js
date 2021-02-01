@@ -1,4 +1,16 @@
 
+var newcases;
+
+
+d3.json("/data/data.json", function(data){
+
+	newcases = data
+	console.log(newcases[0])
+});
+
+
+console.log("test2");
+
 //prepare SVG
 
 var svgWidth = 1080;
