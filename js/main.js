@@ -1,7 +1,12 @@
 
+var data;
 
-var data = d3.json("data/data.json")
-console.log(data)
+
+d3.json("data/data.json", function(json)){
+	console.log(json)
+	data = json
+
+}
 
 
 //prepare SVG
