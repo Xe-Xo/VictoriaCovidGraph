@@ -9,6 +9,8 @@ d3.json("/data/data.json", function(data){
 });
 
 
+console.log("test");
+
 //prepare SVG
 
 var svgWidth = 1080;
