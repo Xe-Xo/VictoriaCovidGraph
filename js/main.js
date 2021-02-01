@@ -16,7 +16,7 @@ var svg = d3.select("div.graph")
 		.append("svg")
 		.attr("width", svgWidth)
 		.attr("height", svgHeight)
-		.style("background-color", "#333333")
+		.style("background-color", "#adadad")
 		.style("border-radius", "8px");
 
 var gAxisY = svg.append("g");
@@ -158,7 +158,7 @@ function optionsLoad() {
 	}
 
 
-    options.something = validIntRange(14, 28, options.something);
+    options.something = validIntRange(0, 1000, options.something);
 	document.getElementById('select_something').value = options.something;
 
 
